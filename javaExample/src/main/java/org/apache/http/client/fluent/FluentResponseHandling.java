@@ -51,7 +51,7 @@ import org.xml.sax.SAXException;
 public class FluentResponseHandling {
 
     public static void main(String[] args)throws Exception {
-        Document result = Request.Get("http://somehost/content")
+        Document result = Request.Get("http://localhost:8080/")
                 .execute().handleResponse(new ResponseHandler<Document>() {
 
             public Document handleResponse(final HttpResponse response) throws IOException {
@@ -74,7 +74,7 @@ public class FluentResponseHandling {
                     }
                     Charset charset = contentType.getCharset();
                     if (charset == null) {
-                        charset = Consts.ISO_8859_1;
+                        charset = Consts.UTF_8;
                     }
                     return docBuilder.parse(entity.getContent(), charset.name());
                 } catch (ParserConfigurationException ex) {

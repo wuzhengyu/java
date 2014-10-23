@@ -33,7 +33,7 @@ public class FluentQuickStart {
         // deallocation of system resources at the cost of having to buffer
         // response content in memory in some cases.
 
-        Request.Get("http://targethost/homepage")
+        Request.Get("http://localhost:8080/")
             .execute().returnContent();
         Request.Post("http://targethost/login")
             .bodyForm(Form.form().add("username",  "vip").add("password",  "secret").build())
