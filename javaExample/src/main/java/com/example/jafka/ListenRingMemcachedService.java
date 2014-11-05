@@ -55,19 +55,19 @@ public class ListenRingMemcachedService {
                         String resId = s[1];
                         String key = "user_ring_list_" + uid;
                         String value;
-                        if (CacheManager.exist(key)) {
-                            Object o = CacheManager.get(key);
-                            if (o != null) {
-                                value = (String) o;
-                                String[] newIds = getIdsQueue(value, resId);
-                                CacheManager.put(key, StringUtils.join(newIds, ","));
-                                System.out.println("jafaka在工作,存储数据中..." + uid + "|resid:" + value);
-                            }
-                        } else {
-                            String[] newIds = getIdsQueue("", resId);
-                            CacheManager.put(key, StringUtils.join(newIds, ","));
-                            System.out.println("jafaka在工作,该用户第一次存储数据中..." + uid + "|resid:" + resId);
-                        }
+//                        if (CacheManager.exist(key)) {
+//                            Object o = CacheManager.get(key);
+//                            if (o != null) {
+//                                value = (String) o;
+//                                String[] newIds = getIdsQueue(value, resId);
+////                                CacheManager.put(key, StringUtils.join(newIds, ","));
+//                                System.out.println("jafaka在工作,存储数据中..." + uid + "|resid:" + value);
+//                            }
+//                        } else {
+//                            String[] newIds = getIdsQueue("", resId);
+////                            CacheManager.put(key, StringUtils.join(newIds, ","));
+//                            System.out.println("jafaka在工作,该用户第一次存储数据中..." + uid + "|resid:" + resId);
+//                        }
                     }
                     offset = message.offset;
                 }
